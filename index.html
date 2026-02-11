@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cálculo de Preço Final — E-commerce</title>
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="wrap">
+        <header>
+        <h1>Cálculo de Preço Final (E-commerce)</h1>
+        <p>
+            Preencha preço base e quantidade. No JavaScript, calcule subtotal, imposto, desconto, frete e total final.
+            Imprima as etapas no console e (se quiser) também no campo de saída abaixo.
+        </p>
+        </header>
+        <section class="grid">
+            <form class="card" id="form">
+                <fieldset class="card__head">
+                    <legend>Entradas</legend>
+                    <div class="card__body">
+                        <div class="row">
+                            <label for="precoBase">Preço base (R$)></label>
+                            <input id="precoBase" type="number" inputmode="decimal" min="0" placeholder="Ex: 89.90">
+                            <label for="quantidade">Quantidade (unidades)</label>
+                            <input id="quantidade" type="number" min="1" placeholder="Ex: 4"/>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <button id="btnCalcular" type="submit">Calcular</button>
+                        <button id="btnLimpar" type="button">Limpar saída</button>
+                    </div>
+                </fieldset>
+                <div class="hint">
+                    Os cálculos utilizam apenas variáveis previamente definidas no escopo da aplicação, sem manipulação do DOM para nao desrespeitar o exercicio pedido.
+                </div>
+            </form>
+            <!-- CARD: RESULTADO -->
+            <div class="card result">
+                <div class="card__head">
+                    <h2>Saída</h2>
+                </div>
+                <div class="result__body">
+                    <div class="output__title">
+                        <span class="tag">#saida (texto para imprimir etapas)</span>
+                        <span class="tag">console.log também</span>
+                    </div>
+                    <pre id="saida" class="output">
+                        === CÁLCULO DE PREÇO FINAL ===
+                        informaçoes estao no console.log
+                    </pre>
+                    <footer>
+                        * Sem loops, sem arrays/objetos, sem DOM avançado. Só leitura de inputs + funções puras + impressão do passo a passo.
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
