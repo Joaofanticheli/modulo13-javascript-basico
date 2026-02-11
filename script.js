@@ -54,31 +54,49 @@ const LIMITE_FRETE_GRATIS = 200.00;
 PARA ENTREGAR:
 Escreva o código JavaScript completo que resolve este problema. Não preciso do HTML, apenas o código dentro da tag <script>.
 */
-let precoBase= 89.90;
-let unidade = 4;
-function calcularSubTotal(precoBase, unidade){
-    return precoBase*unidade
-}
-let subtotal = calcularSubTotal(precoBase, unidade);
-console.log(subtotal);
-
 const imposto = 0.17;
+const desconto6Unidade= 0.10;
+const desconto3Unidade= 0.05;
+const freteGratis= 200;
+const fretePadrao = 15
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+    const dados = pegarValor();
+    let subtotal = calcularSubTotal(dados);
+    console.log(subtotal);
+    document.getElementById("resultadoSubtotal").textContent = subtotal;
+    let impostoCalculado = calcularImposto(subtotal, imposto);
+    console.log(impostoCalculado);
+    document.getElementById("resultadoImposto").textContent = impostoCalculado;
+    let precoTotal = calcularDesconto(subtotal, dados);
+    console.log(precoTotal);
+    document.getElementById("resultadoDesconto").textContent = precoTotal;
+    const frete = calcularFrete(precoTotal, freteGratis );
+    console.log(frete);
+    document.getElementById("resultadoFrete").textContent = frete;
+    const valorTotal = calcularValorTotal(frete, precoTotal);
+    console.log(valorTotal);
+    document.getElementById("resultadoTotal").textContent = valorTotal;
+});
+function pegarValor(){
+    precoBase = Number(document.getElementById("precoBase").value),
+    unidade = Number(document.getElementById("quantidade").value)
+    return {precoBase, unidade}
+}
+function calcularSubTotal(dados){
+    return dados.precoBase*dados.unidade
+}
 function calcularImposto(subtotal, imposto){
     return subtotal*imposto
 }
-let impostoCalculado = calcularImposto(subtotal, imposto);
-console.log(impostoCalculado);
-
-const desconto6Unidade= 0.10;
-const desconto3Unidade= 0.05;
-function calcularDesconto(subtotal, unidade, desconto3Unidade, desconto6Unidade){
-    if(unidade >= 6){
+function calcularDesconto(subtotal, dados){
+    if(dados.unidade >= 6){
         let desconto= subtotal*desconto6Unidade
         console.log(desconto)
         return subtotal- desconto
     }
     else{
-        if(unidade >= 3){
+        if(dados.unidade >= 3){
             let desconto = subtotal*desconto3Unidade
             console.log(desconto)
             return subtotal- desconto
@@ -88,23 +106,14 @@ function calcularDesconto(subtotal, unidade, desconto3Unidade, desconto6Unidade)
         }
     }
 }
-let precoTotal = calcularDesconto(subtotal, unidade, desconto3Unidade, desconto6Unidade);
-console.log(precoTotal);
-
-const freteGratis= 200;
 function calcularFrete(precoTotal, freteGratis ){
     if(precoTotal >= freteGratis){
         return 0
     }
     else{
-        return 15
+        return fretePadrao
     }
 }
-const frete = calcularFrete(precoTotal, freteGratis );
-console.log(frete);
-
 function calcularValorTotal(frete, precoTotal){
     return frete + precoTotal
 }
-const valorTotal = calcularValorTotal(frete, precoTotal);
-console.log(valorTotal);

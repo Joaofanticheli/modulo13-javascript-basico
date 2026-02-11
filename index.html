@@ -23,7 +23,7 @@
                     <div class="card__body">
                         <div class="row">
                             <label for="precoBase">Preço base (R$)></label>
-                            <input id="precoBase" type="number" inputmode="decimal" min="0" placeholder="Ex: 89.90">
+                            <input id="precoBase" type="number" inputmode="decimal" step="0.01" min="0.00" placeholder="Ex: 89.90">
                             <label for="quantidade">Quantidade (unidades)</label>
                             <input id="quantidade" type="number" min="1" placeholder="Ex: 4"/>
                         </div>
@@ -34,7 +34,7 @@
                     </div>
                 </fieldset>
                 <div class="hint">
-                    Os cálculos utilizam apenas variáveis previamente definidas no escopo da aplicação, sem manipulação do DOM para nao desrespeitar o exercicio pedido.
+                    faça seu calculo!
                 </div>
             </form>
             <!-- CARD: RESULTADO -->
@@ -48,8 +48,11 @@
                         <span class="tag">console.log também</span>
                     </div>
                     <pre id="saida" class="output">
-                        === CÁLCULO DE PREÇO FINAL ===
-                        informaçoes estao no console.log
+                            <p>Subtotal: <strong id="resultadoSubtotal">—</strong></p>
+                            <p>Imposto: <strong id="resultadoImposto">—</strong></p>
+                            <p>Desconto: <strong id="resultadoDesconto">—</strong></p>
+                            <p>Frete: <strong id="resultadoFrete">—</strong></p>
+                            <p>Total: <strong id="resultadoTotal">—</strong></p>
                     </pre>
                     <footer>
                         * Sem loops, sem arrays/objetos, sem DOM avançado. Só leitura de inputs + funções puras + impressão do passo a passo.
