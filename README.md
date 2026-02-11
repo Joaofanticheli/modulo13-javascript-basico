@@ -96,7 +96,5 @@ Projeto desenvolvido como parte do estudo de **JavaScript básico**, com ênfase
 
 ## ▶️ Como Executar
 
-1. Clone o repositório  
-2. Abra o arquivo `index.html` no navegador  
-3. Insira o preço base e a quantidade  
-4. Abra o **console do navegador** para acompanhar o cálculo passo a passo
+1. Acesse esse site https://joaofanticheli.github.io/modulo13-javascript-basico/  
+
